@@ -130,7 +130,7 @@ export default function Todos() {
       ></i>
 
       <p className="font-normal text-4xl px-6 pt-2 flex justify-center items-center">
-        <span>Today</span>
+        <span>Only Today</span>
       </p>
 
       <div className="flex justify-between mt-3 mx-6 border-b cursor-pointer">

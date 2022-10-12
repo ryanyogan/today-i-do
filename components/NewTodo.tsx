@@ -1,4 +1,6 @@
 import { FormEvent, useContext, useRef } from "react";
+import toast from "react-hot-toast";
+import { addTask } from "../firebase/task.firestore";
 import Task from "../models/Task";
 import AuthContext from "../store/auth.context";
 
@@ -27,5 +29,19 @@ export default function NewTodo() {
       dueAt: new Date(dueOnRef?.current?.value ?? ""),
       uidUser: user.uid,
     };
+
+    if (task.title.length >= 5 && task.description.length >= 5) {
+      addTask(task).then(() => {
+        toast.success("Now do it!", {
+          icon: "✅",
+        });
+      });
+    }
   }
+
+  return (
+    <div className="flex flex-col px-6 py-4 md:w-1/2 md:m-auto">
+      <h3 className="mb-4 text-2xl font-semibold">New Task</h3>
+    </div>
+  );
 }
