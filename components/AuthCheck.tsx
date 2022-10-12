@@ -1,8 +1,8 @@
 import { useRouter } from "next/router";
 import React, { useContext, useEffect } from "react";
-import AuthContext from "store/auth.context";
+import AuthContext from "../store/auth.context";
 import Loading from "./Loading";
-import Login from "./Logint";
+import Login from "./Login";
 
 export default function AuthCheck({ children }: { children: React.ReactNode }) {
   const { user, loading } = useContext(AuthContext);
@@ -15,11 +15,11 @@ export default function AuthCheck({ children }: { children: React.ReactNode }) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [loading]);
 
-  if (user && !loading && router.pathname !== "/") {
-    return children;
+  if (children && user && !loading && router.pathname !== "/") {
+    return children as any;
   } else if (!user && !loading) {
     return <Login />;
-  } else {
-    return <Loading />;
   }
+
+  return <Loading />;
 }

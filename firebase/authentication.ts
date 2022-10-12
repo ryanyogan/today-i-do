@@ -22,4 +22,4 @@ export const signInWithGoogle = () =>
 
 export const signInAnonymous = () => signInAnonymously(auth);
 
-export const logout = () => signOut(auth);
+export const logOut = () => signOut(auth);
