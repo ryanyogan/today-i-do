@@ -1,6 +1,6 @@
 import "bootstrap-icons/font/bootstrap-icons.css";
 import type { AppProps } from "next/app";
-import { AuthContextProvider } from "store/auth.context";
+import { AuthContextProvider } from "../store/auth.context";
 import "../styles/globals.css";
 
 function MyApp({ Component, pageProps }: AppProps) {
